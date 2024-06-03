@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Updated background color */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 2em;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+form {
+    background: #fff;
+    padding: 2em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added box shadow */
+    border-radius: 5px; /* Added border radius */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold; /* Added font weight */
+}
+
+input[type="text"],
+input[type="url"],
+textarea,
+button,
+input[type="file"] {
+    width: 100%;
+    padding: 0.7em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc; /* Added border */
+    border-radius: 4px; /* Added border radius */
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 150px; /* Increased textarea height */
+}
+
+button {
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s; /* Added transition effect */
+}
+
+button:hover {
+    background: #555; /* Darker background on hover */
+}
+
+.papers-list,
+.search-results {
+    background: #fff;
+    padding: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Added box shadow */
+    border-radius: 5px; /* Added border radius */
+}
+
+.paper-item {
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 1px solid #ccc; /* Added border */
+    border-radius: 5px; /* Added border radius */
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+.footer p {
+    margin: 0;
+}

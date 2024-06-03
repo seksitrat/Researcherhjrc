@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Research Papers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Research Papers (MICROLABORATORY)</h1>
+        <nav>
+            <ul>
+                <li><a href="#add-paper">Add Paper</a></li>
+                <li><a href="#papers">View Papers</a></li>
+                <li><a href="#search">Search</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="add-paper">
+            <h2>Add New Paper</h2>
+            <form id="paper-form" method="post" action="/add_paper" enctype="multipart/form-data">
+                <label for="topic">Topic:</label>
+                <input type="text" id="topic" name="topic" required>
+                <label for="abstract">Abstract:</label>
+                <textarea id="abstract" name="abstract" required></textarea>
+                <label for="conclusion">Conclusion:</label>
+                <textarea id="conclusion" name="conclusion" required></textarea>
+                <label for="link">Link:</label>
+                <input type="url" id="link" name="link" placeholder="Enter link">
+                <label for="pdf">Upload PDF:</label>
+                <input type="file" id="pdf" name="pdf" accept=".pdf">
+                <button type="submit">Add Paper</button>
+            </form>
+        </section>
+        <section id="papers">
+            <h2>My Papers</h2>
+            <div class="papers-list">
+                {% for paper in papers %}
+                    <div class="paper-item">
+                        <h3>{{ paper.topic }}</h3>
+                        <p><strong>Abstract:</strong> {{ paper.abstract }}</p>
+                        <p><strong>Conclusion:</strong> {{ paper.conclusion }}</p>
+                        <p><strong>Link:</strong> <a href="{{ paper.link }}" target="_blank">{{ paper.link }}</a></p>
+                        <!-- Display PDF file if available -->
+                        {% if paper.pdf_path %}
+                        <p><strong>PDF:</strong> <a href="{{ url_for('download_pdf', filename=paper.pdf_path) }}" target="_blank">Download PDF</a></p>
+                        {% endif %}
+                        <form action="{{ url_for('delete_paper', index=loop.index0) }}" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+    <footer style="display: flex; justify-content: center;">
+        <p>&copy; 2024 Seksit Ratchawong, HJRC</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
